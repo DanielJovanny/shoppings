@@ -8,6 +8,11 @@ const routes: Routes = [
     component:UserPanelComponent, 
     loadChildren: () => 
     import('./user-panel/user-panel.module').then(m => m.UserPanelModule) 
+  },
+  { 
+    path: 'admin', 
+    loadChildren: () => 
+    import('./admin-panel/admin-panel.module').then(m => m.AdminPanelModule) 
   }
 ];
 
