@@ -1,0 +1,24 @@
+<header class="bg-transparent z-50 fixed top-0 left-0 right-0 w-full mat-elevation-z1">
+    <nav>
+        <mat-toolbar>
+            <button mat-icon-button [color]="'primary'" (click)="menu.toggle()" aria-label="Example icon-button with menu icon ">
+                <mat-icon>menu</mat-icon>
+            </button>
+            <a class="p-2" href="/">
+                <img class="h-8" src="assets/logo.png" alt="">
+            </a>
+            <span class="flex-auto "></span>
+            <button mat-icon-button [color]="'primary'" aria-label="Example icon-button with share icon ">
+                <mat-icon>person</mat-icon>
+            </button>
+        </mat-toolbar>
+    </nav>
+</header>
+<mat-sidenav-container class="w-full h-full pt-16">
+    <mat-sidenav class="w-64 pt-20 px-4" #menu [mode]="mobileQuery.matches ? 'over' : 'side'" [opened]="mobileQuery.matches ? false : true">
+        <app-menu [items]="menuOptions"></app-menu>
+    </mat-sidenav>
+    <mat-sidenav-content class="p-4 lg:px-14 lg:py-10">
+        <ng-content></ng-content>
+    </mat-sidenav-content>
+</mat-sidenav-container>
