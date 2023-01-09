@@ -4,7 +4,7 @@ import { UserPanelComponent } from './user-panel/user-panel.component';
 
 const routes: Routes = [
   { 
-    path: '',
+    path: 'stores',
     component:UserPanelComponent, 
     loadChildren: () => 
     import('./user-panel/user-panel.module').then(m => m.UserPanelModule) 
@@ -13,7 +13,7 @@ const routes: Routes = [
     path: 'admin', 
     loadChildren: () => 
     import('./admin-panel/admin-panel.module').then(m => m.AdminPanelModule) 
-  }
+  },
 ];
 
 @NgModule({

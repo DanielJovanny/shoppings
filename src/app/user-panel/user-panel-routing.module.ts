@@ -4,13 +4,13 @@ import { StoreComponent } from './store/store.component';
 
 const routes: Routes = [
   { 
-    path: 'stores',
+    path: '',
     component:StoreComponent,
     loadChildren: () => 
     import('./store/store.module').then(m => m.StoreModule) 
   },
-  { path: '',   redirectTo: '/stores', pathMatch: 'full' },
-  { path: '**', redirectTo: '/stores'  },
+
+
 ];
 
 @NgModule({
