@@ -1,0 +1,11 @@
+<mat-card *ngIf="store" class="hover:bg-accent/10 cursor-pointer" [ngClass]="{'!border-accent !border-2':active}" (click)="changePositionSatore(store)" [appearance]="'outlined'">
+    <mat-card-header>
+        <mat-card-title class="text-primary capitalize cursor-pointer">{{store.name | lowercase}}</mat-card-title>
+        <mat-card-subtitle class="cursor-pointer capitalize">{{store.state | lowercase}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <p class="text-sm text-gray-700 cursor-pointer capitalize">
+            {{store.address | lowercase}}, {{store.neighborhood | lowercase}},{{store.city | lowercase}},{{store.cp | lowercase}}. {{store.numInt | lowercase}}, {{store.numExt | lowercase}}.
+        </p>
+    </mat-card-content>
+</mat-card>
