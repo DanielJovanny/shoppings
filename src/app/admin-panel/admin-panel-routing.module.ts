@@ -1,8 +1,23 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AdminPanelComponent } from './admin-panel.component';
 
-const routes: Routes = [{ path: '', component: AdminPanelComponent }];
+const routes: Routes = [
+  { 
+    path: 'list', 
+    loadChildren: () => 
+    import('./pages/store-list/store-list.module').then(m => m.StoreListModule) 
+  },
+  { 
+    path: 'form', 
+    loadChildren: () => 
+    import('./pages/form-store/form-store.module').then(m => m.FormStoreModule) 
+  },
+  { 
+    path: 'details', 
+    loadChildren: () => 
+    import('./pages/store-details/store-details.module').then(m => m.StoreDetailsModule) 
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
