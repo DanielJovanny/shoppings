@@ -1,0 +1,10 @@
+<mat-nav-list *ngFor="let item of items">
+    <mat-list-item routerLink="{{item.routerLink}}" routerLinkActive="bg-slate-200" class="overflow-hidden rounded" [activated]="this.router.isActive(item.routerLink != undefined ? item.routerLink: '', true)">
+        <mat-icon matListItemIcon>{{item.icon}}</mat-icon>
+        <a class="capitalize" matListItemTitle>{{item.label}}</a>
+        <!--<mat-icon [color]="'primary'" matListItemMeta>
+                    expand_more
+                </mat-icon>
+                -->
+    </mat-list-item>
+</mat-nav-list>
