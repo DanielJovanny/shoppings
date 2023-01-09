@@ -1,0 +1,74 @@
+<header class="bg-white z-50 fixed top-0 left-0 right-0 w-full mat-elevation-z2">
+    <nav>
+        <mat-toolbar class="bg-white">
+            <button mat-icon-button [color]="'primary'" (click)="menu.toggle()" aria-label="Example icon-button with menu icon ">
+                <mat-icon>menu</mat-icon>
+            </button>
+            <a class="p-2" href="/">
+                <img class="h-8" src="assets/logo.png" alt="">
+            </a>
+            <span class="flex-auto "></span>
+            <button mat-icon-button [color]="'primary'" aria-label="Example icon-button with share icon ">
+                <mat-icon>person</mat-icon>
+            </button>
+        </mat-toolbar>
+    </nav>
+</header>
+<mat-sidenav-container class="w-full h-full pt-16">
+    <mat-sidenav class="pt-20" [ngClass]="mobileQuery.matches ? 'w-full' : 'w-96'" #menu [mode]="mobileQuery.matches ? 'over' : 'side'" [opened]="mobileQuery.matches ? false : true">
+        <div class="flex flex-col h-full">
+            <form [formGroup]="form" class="block px-4 border-b border-solid border-[#0000001f] z-10">
+                <h1 class=" pt-4 mb-4 text-center text-2xl font-semibold font-fredoka">Tiendas autorizadas</h1>
+                <mat-form-field class="w-full">
+                    <mat-label>Buscar</mat-label>
+                    <input matInput type="text" formControlName="search">
+                    <mat-icon matPrefix>search</mat-icon>
+                </mat-form-field>
+                <div class="flex flex-wrap pb-4">
+                    <div class="w-2/3">
+                        <span class="text-sm text-gray-700 font-fredoka">15 Tiendas en Quintana Roo</span>
+                    </div>
+                    <div class="w-1/3 text-right">
+                        <button mat-button>
+                            Filtar
+                            <mat-icon> sort</mat-icon>
+                        </button>
+                    </div>
+                    <div class="w-full">
+                        <span class="text-xs text-gray-700 font-medium font-fredoka">Filtros</span>
+                        <mat-chip-listbox>
+                            <mat-chip-row>
+                                Aguascalientes
+                                <button matChipRemove>
+                                    <mat-icon>cancel</mat-icon>
+                                </button>
+                            </mat-chip-row>
+                            <mat-chip-row>
+                                Aguascalientes
+                                <button matChipRemove>
+                                    <mat-icon>cancel</mat-icon>
+                                </button>
+                            </mat-chip-row>
+                        </mat-chip-listbox>
+                    </div>
+                </div>
+            </form>
+            <div class="overflow-y-scroll scrollbar h-full block" infiniteScroll (scrolled)="onScrollDown()" [scrollWindow]="false">
+                <app-card-store #matCard *ngFor="let store of data; let i=index" [store]="store" (click)="changeActive(matCard)" (changePositionStore)="zoomStore(store)">
+                </app-card-store>
+            </div>
+        </div>
+    </mat-sidenav>
+    <mat-sidenav-content class="p-4 lg:px-8 lg:py-10 bg-white">
+        <ng-content></ng-content>
+        <div *ngIf="apiMapLoaded | async" class="rounded-md overflow-hidden">
+            <google-map #map [options]="configOptions" (mapInitialized)="loadMarkerOptions()" width="100%" height="80vh">
+                <map-marker [icon]="customIcon" [options]="markerOptions" #marker="mapMarker" *ngFor="let market of data" [position]="market.position" (mapClick)="openInfoWindow(marker,infoWindow)">
+                    <map-info-window #infoWindow="mapInfoWindow">
+                        <span class="capitalize font-fredoka font-medium text-primary"> {{market.name | lowercase}}</span>
+                    </map-info-window>
+                </map-marker>
+            </google-map>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
