@@ -1,5 +1,5 @@
 import { MediaMatcher } from '@angular/cdk/layout';
-import { ChangeDetectorRef, Component } from '@angular/core';
+import { ChangeDetectorRef, Component, Input } from '@angular/core';
 import { MenuList } from 'src/app/utils/types';
 
 @Component({
@@ -8,19 +8,13 @@ import { MenuList } from 'src/app/utils/types';
   styleUrls: ['./base-layout.component.scss']
 })
 export class BaseLayoutComponent {
+
+  @Input() menuOptions:MenuList[] = [];
   mobileQuery: MediaQueryList;
   private _mobileQueryListener: () => void;
-  public menuOptions: MenuList[] = [
-    {
-      icon: 'view_list',
-      label: 'stores',
-      routerLink: '/stores'
-    }
-
-  ]
 
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
-    this.mobileQuery = media.matchMedia('(max-width: 600px)');
+    this.mobileQuery = media.matchMedia('(max-width: 769px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
   }
