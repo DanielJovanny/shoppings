@@ -9,7 +9,7 @@ module.exports = {
                 'fredoka': ['"Fredoka"', 'sans-serif']
             },
             colors: {
-                primary: '#009ebf',
+                primary: '#009CDE',
                 accent: '#60ccff',
             }
         },
