@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { UserPanelRoutingModule } from './user-panel-routing.module';
 import { UserPanelComponent } from './user-panel.component';
-import { LayoutsModule } from '../layouts/layouts.module';
+import { LayoutsModule } from 'src/app/layouts/layouts.module';
 
 
 @NgModule({

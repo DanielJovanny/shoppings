@@ -121,7 +121,7 @@ export const dataStores: Store[] = [
         numExt: '9112',
         numInt: '',
         cp: '22040',
-        active: true,
+        active: false,
         position: {
             lat: 32.52051275031735,
             lng: -117.0257667318929
@@ -137,7 +137,7 @@ export const dataStores: Store[] = [
         numExt: '11988',
         numInt: '2',
         cp: '20289',
-        active: true,
+        active: false,
         position: {
             lat: 32.51012648088687,
             lng: -116.99428282097283

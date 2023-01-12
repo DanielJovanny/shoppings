@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { dataStores } from 'src/app/data/stores';
+import { Store } from 'src/app/utils/types';
+
 
 @Component({
   selector: 'app-store-list',
@@ -6,5 +9,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./store-list.component.scss']
 })
 export class StoreListComponent {
+  displayedColumns: string[] = ['name', 'location','status'];
+  dataSource:Store[] = dataStores;
+
 
 }

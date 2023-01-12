@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { StoreListRoutingModule } from './store-list-routing.module';
 import { StoreListComponent } from './store-list.component';
+import { MaterialModule } from 'src/app/modules/material/material.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { StoreListComponent } from './store-list.component';
   ],
   imports: [
     CommonModule,
-    StoreListRoutingModule
+    StoreListRoutingModule,
+    MaterialModule
   ]
 })
 export class StoreListModule { }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MenuList } from '../utils/types';
+import { MenuList } from 'src/app/utils/types';
 
 @Component({
   selector: 'app-admin-panel',
