@@ -1,0 +1,9 @@
+<div *ngIf="apiLoaded" class="rounded-md overflow-hidden">
+    <google-map #map="googleMap" [options]="configOptions" (mapInitialized)="loadMarkerOptions()" width="100%" height="80vh">
+        <map-marker [icon]="customIcon" [options]="markerOptions" #marker="mapMarker" *ngFor="let market of data" [position]="market.position" (mapClick)="openInfoWindow(marker,infoWindow)">
+            <map-info-window #infoWindow="mapInfoWindow">
+                <span class="capitalize font-fredoka font-medium text-primary"> {{market.name | lowercase}}</span>
+            </map-info-window>
+        </map-marker>
+    </google-map>
+</div>

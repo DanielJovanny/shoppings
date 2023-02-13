@@ -1,1 +1,95 @@
-<p>form-store works!</p>
+<div class="w-full absolute -mx-14 -mt-10 -z-10 min-h-[400px] bg-primary">
+</div>
+<div class="w-full flex justify-between mb-4">
+    <h3 class="font-fredoka text-3xl text-white font-bold tracking-wide">Añadir Tienda</h3>
+    <button mat-flat-button><mat-icon>add_business</mat-icon> Guardar</button>
+</div>
+<div class="md:flex w-full h-full">
+    <form class="w-6/12 overflow-y-scroll scrollbar">
+        <mat-card class="w-full" appearance="outlined">
+            <mat-card-header>
+                <mat-card-title class="text-primary">
+                    Nueva tienda distribuidora
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <mat-card-subtitle>Información del distribuidor</mat-card-subtitle>
+                <div class="w-full text-center pb-4">
+                    <div (click)="inputFile.click()" class="h-36 w-36 m-auto bg-contain bg-center bg-no-repeat rounded-full relative cursor-pointer" style="background-image:url('{{imageUrl}}') ;">
+                        <div class="absolute -bottom-1 -right-1">
+                            <button mat-mini-fab color="accent" class="!shadow-none" aria-label="Example icon button with a plus one icon">
+                                <mat-icon>photo_camera</mat-icon>
+                            </button>
+                        </div>
+                    </div>
+                    <small class="mx-auto text-sm text-black/50 font-fredoka font-medium">opcional</small>
+                    <input type="file" accept=".png,.jpg" class="hidden" (change)="onFileSelected($event)" #inputFile>
+                </div>
+                <mat-form-field class="w-full">
+                    <mat-label>Nombre Cormecial</mat-label>
+                    <input matInput placeholder="Zapatería" />
+                </mat-form-field>
+                <mat-card-subtitle>Ubicación del distribuidor</mat-card-subtitle>
+                <div class="md:flex pt-2">
+                    <mat-form-field class="w-1/2 pr-2">
+                        <mat-label>Estado</mat-label>
+                        <input matInput placeholder="Quintana Roo" />
+                    </mat-form-field>
+                    <mat-form-field class="w-1/2">
+                        <mat-label>Cuidad</mat-label>
+                        <input matInput placeholder="Playa del Carmen" />
+                    </mat-form-field>
+                </div>
+                <div class="md:flex">
+                    <mat-form-field class="w-1/2 pr-2">
+                        <mat-label>Colonia</mat-label>
+                        <input matInput placeholder="Pilar blanco" />
+                    </mat-form-field>
+                    <mat-form-field class="w-1/2">
+                        <mat-label>Delegación</mat-label>
+                        <input matInput placeholder="Miguel Hidalgo" />
+                    </mat-form-field>
+                </div>
+                <mat-form-field class="w-full">
+                    <mat-label>Dirección</mat-label>
+                    <input matInput placeholder="Jose Maria Chavez" />
+                </mat-form-field>
+
+                <div class="md:flex">
+                    <mat-form-field class="w-1/3 pr-2">
+                        <mat-label>Código Postal (CP)</mat-label>
+                        <input matInput placeholder="20289" />
+                    </mat-form-field>
+                    <mat-form-field class="w-1/3 pr-2">
+                        <mat-label>Número Ext.</mat-label>
+                        <input matInput placeholder="Jose Maria Chavez" />
+                    </mat-form-field>
+                    <mat-form-field class="w-1/3">
+                        <mat-label>Número Int.</mat-label>
+                        <input matInput placeholder="Jose Maria Chavez" />
+                    </mat-form-field>
+                </div>
+                <mat-card-subtitle>Ubicación Geografica</mat-card-subtitle>
+                <p class="text-sm font-fredoka text-black/50">Use el mapa para ubicar la tienda distribuidora en la dirección proporcionada, si sabe la latitud y longitud exacta ingreselas acontinuación </p>
+                <div class="md:flex pt-2">
+                    <mat-form-field class="w-1/2 pr-2">
+                        <mat-label>Latitud</mat-label>
+                        <input matInput placeholder="Quintana Roo" />
+                    </mat-form-field>
+                    <mat-form-field class="w-1/2">
+                        <mat-label>Longitud</mat-label>
+                        <input matInput placeholder="Playa del Carmen" />
+                    </mat-form-field>
+                </div>
+
+            </mat-card-content>
+
+            <mat-card-actions align="end">
+                <button mat-flat-button color="accent">Guardar</button>
+            </mat-card-actions>
+        </mat-card>
+    </form>
+    <div class="w-6/12  pl-4">
+        <app-map></app-map>
+    </div>
+</div>

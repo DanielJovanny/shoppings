@@ -18,11 +18,11 @@ import {
 import { MatChipsModule } from '@angular/material/chips';
 import { MatTableModule } from '@angular/material/table';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatPaginatorModule, MatPaginatorIntl } from '@angular/material/paginator';
+
+import { customPaginator } from './customPaginator';
 
 
-
-/* Google Maps*/
-import { GoogleMapsModule } from '@angular/google-maps';
 @NgModule({
   declarations: [],
   imports: [
@@ -41,15 +41,19 @@ import { GoogleMapsModule } from '@angular/google-maps';
     MatInputModule,
     MatChipsModule,
     MatTableModule,
-    MatProgressBarModule,
-    GoogleMapsModule,
+    MatPaginatorModule,
     RootModule
   ],
-  providers:[
+  providers: [
     {
-      provide:MAT_FORM_FIELD_DEFAULT_OPTIONS,
-      useValue:{ appearance:'outline'}
+      provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,
+      useValue: { appearance: 'outline' }
+    },
+    {
+      provide: MatPaginatorIntl, useClass: customPaginator
     }
   ]
 })
-export class MaterialModule { }
+export class MaterialModule {
+
+}

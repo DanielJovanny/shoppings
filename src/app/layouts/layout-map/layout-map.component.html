@@ -61,14 +61,7 @@
     </mat-sidenav>
     <mat-sidenav-content class="p-4 lg:px-8 lg:py-10 bg-white">
         <ng-content></ng-content>
-        <div *ngIf="apiMapLoaded | async" class="rounded-md overflow-hidden">
-            <google-map #map [options]="configOptions" (mapInitialized)="loadMarkerOptions()" width="100%" height="80vh">
-                <map-marker [icon]="customIcon" [options]="markerOptions" #marker="mapMarker" *ngFor="let market of data" [position]="market.position" (mapClick)="openInfoWindow(marker,infoWindow)">
-                    <map-info-window #infoWindow="mapInfoWindow">
-                        <span class="capitalize font-fredoka font-medium text-primary"> {{market.name | lowercase}}</span>
-                    </map-info-window>
-                </map-marker>
-            </google-map>
-        </div>
+        <app-map #map [data]="data"></app-map>
+
     </mat-sidenav-content>
 </mat-sidenav-container>

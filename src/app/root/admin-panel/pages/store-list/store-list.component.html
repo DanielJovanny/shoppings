@@ -41,4 +41,5 @@
         <mat-header-row *matHeaderRowDef="displayedColumns ; sticky:true"></mat-header-row>
         <mat-row *matRowDef="let row; columns: displayedColumns;" class="hover:!bg-primary/5 cursor-pointer"></mat-row>
     </mat-table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Página seleccionada de tiendas"></mat-paginator>
 </mat-card>
